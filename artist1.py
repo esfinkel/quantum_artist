@@ -29,19 +29,12 @@ def take_data(inputArray):
     outputDict = {'firstArray':fstArray, 'secondArray':sndArray,
                   'thirdArray':thdArray, 'fourthArray':fthArray} #dictionary to retun all the qubit arrays.
     return outputDict
-# Note: I wrote some extra helpers 'first (outputArray)', 'second (...)', etc. that
-# give each int array by itself. You can use them in adddition to the above
-# in main() or call this function  as take_data(outputArray).
 
 # combine helpers together
 def main():
     win = gr.GraphWin("My Art", 1000, 700) #title and dimensions.
     win.setCoords(0, 0, 1000, 700) #set coordinate system (xll, yll, xur, yur)
    
-#    firstArray = [0,0,1] #results of 'take_data(..)' and 'first(..)' from artist.py
-#    secArray = [0,0,1]
-#    thirdArray = [0.,1,0]
-#    fourthArray = [1,1,0]
     data = fbqrng.generate_data(fbqrng.circuit4)
     firstArray = first(data) #results of 'take_data(..)' and 'first(..)' from artist.py
     secArray = second(data)
@@ -107,10 +100,3 @@ def fourth(input):
     return take_data(input).get('fourthArray')
 
 main()
-#Tests for the different functions above. Un-comment and use.
-
-#print(take_data(["0000", "0001", "1000", "1100"]))
-#print(take_data(outputArray))
-#print(first(["0000", "0001", "1000", "1100"]))
-#print(first(outputArray))
-    
