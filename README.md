@@ -1,5 +1,13 @@
 # quantum_artist
 
+## Project Statement
+
+The objective of the “random drawer” is to create art using the results from a quantum RNG. Because there will be noisy data that we will not be getting rid of, this data will also be used to draw (this part of the drawing will essentially be a visual representation of noise).
+
+Implementation: Make a random number generator that returns 0’s and 1’s. Then use these random numbers to make decisions on where/how to draw lines and shapes on a python canvas. We’ll end up with abstract art!
+
+Applications: Can help create works of abstract art, fantasy coastline maps that support story-telling, etc.
+
 ## Pertinent Files:
 
 * artist.py
