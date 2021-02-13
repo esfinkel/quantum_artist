@@ -6,9 +6,8 @@ import fake_test
 """
 Take in data and convert to good format.
 Input: Array 'outputArray' from 'fake_test.py' (array of 4-bit combinations).
-Output: Dictionary 'outputDict' containing four arrays where the nth array
-contains all nth position qubits of strings in the input array, in the form
-{'firstArray': [1,0,..0],..., 'fourthArray': [1,0,...0]}.
+Output: Tuple of 4 Arrays the nth array
+contains all nth position qubits of strings in the input array.
 """
 def take_data(inputArray):
     fstArray = []; sndArray = []; thdArray = []; fthArray = []
@@ -17,12 +16,7 @@ def take_data(inputArray):
         sndArray.append(int(str[1]))
         thdArray.append(int(str[2]))
         fthArray.append(int(str[3]))
-    outputDict = {'firstArray':fstArray, 'secondArray':sndArray,
-                  'thirdArray':thdArray, 'fourthArray':fthArray} #dictionary to retun all the qubit arrays.
-    return outputDict
-# Note: I wrote some extra helpers first (outputArray), second (...), etc. that
-# give each int array by itself. You can use them in main() or call this 
-# function  as take_data(outputArray).
+    return fstArray, sndArray, thdArray, fthArray
 
 # combine helpers together
 def main():
