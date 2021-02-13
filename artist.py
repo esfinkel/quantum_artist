@@ -26,18 +26,23 @@ def take_data(inputArray):
 # combine helpers together
 def main():
     # https://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
+    # open a window with given dimensions
     win = GraphWin('Art', 400, 400) # give title and dimensions
     center = {'x': 200, 'y': 200}
 
+    # format input data
     cbits, iobits, szbits, shbits = take_data(DATA_SOURCE)
 
+    # start at 0 degrees
     theta = 0
     for i in range(len(cbits)):
         # if theta > 4000:
         #     continue
+        # take next data point; rotate
         (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
         theta += 13 # or whatever
 
+        # determine where the line/triangle starts, its dimensions, and its shape
         sz = size(szbit)
         r = inout(iobit)
         x1 = r * math.cos(math.radians(theta))
@@ -45,6 +50,7 @@ def main():
         sh = shape(shbit)
 
         if sh=='triangle':
+            # determine scale factor and the two outer points of the triangle
             scale = 3 * (r + sz)
             pt1 = Point(center['x']+x1, center['y']+y1)
             x2 = scale * math.cos(math.radians(theta))
@@ -56,15 +62,18 @@ def main():
             dit = Polygon(pt1, pt2, pt3)
 
         elif sh=='line':
+            # determine scale factor and the second endpoint of the line
             scale = 4 * r
             x2 = scale * math.cos(math.radians(theta))
             y2 = scale * math.sin(math.radians(theta))
             dit = Line(Point(center['x']+x1, center['y']+y1), Point(center['x']+x2, center['y']+y2))
             dit.setWidth(sz/2)
 
+        # determine color and draw
         dit.setFill(color(cbit))
         dit.draw(win)
 
+    # wait until user clicks the drawing; then close window
     win.getMouse()
     win.close()
 
