@@ -6,7 +6,9 @@ By Elisabeth Finkel, Kshama Malavalli, and Gayathrini Premawardhana (all B.A. Co
 
 `pip install -r requirements.txt`
 
-Run `artist.py`. Comment/uncomment `DATA_SOURCE` (at top of file) to select whether you want to use our pre-collected real quantum data (in `real_data.py`) or dynamically generate new data using a fake quantum backend (`in four_bit_quantum_rng.py`). Note that the latter will access IBM's resources using qiskit; you would need to follow the instructions at https://qiskit.org/documentation/install.html to cache your qiskit access token, if you've never done so.
+Run `artist.py`. Comment/uncomment `DATA_SOURCE` (at top of file) to select whether you want to use our pre-collected real quantum data (in `real_data.py`) or dynamically generate new data using a fake quantum backend (`in four_bit_quantum_rng.py`).
+
+You can also generate new data from real quantum hardware yourself, if you want. Note that the latter will access IBM's resources using qiskit; you would need to follow the instructions at https://qiskit.org/documentation/install.html to cache your qiskit access token, if you've never done so, and uncomment `provider =...` in the circuit code.
 
 ## Project Statement
 
