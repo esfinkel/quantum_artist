@@ -24,16 +24,19 @@ def main():
     win = GraphWin('Art', 200, 150) # give title and dimensions
     center = {'x': 100, 'y': 75}
 
-    data = take_data(fake_test.outputArray) # assuming list of tuples
+    cbits, iobits, szbits, shbits = take_data(fake_test.outputArray) # assuming list of tuples
     theta = 0
     r = 10
-    for i in len(data['firstArray']):
-        (cbit, iobit, szbit, shbit) = data['firstArray'][i], data['secondArray'][i], data['thirdArray'][i], data['fourthArray'][i]
-        theta += 5 # or whatever
+    for i in range(len(cbits)):
+        if i>360:
+            continue
+        (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
+        theta += 30 # or whatever
 
         sz = size(szbit)
         io = inout(iobit)
-        r = max(10, r + io)
+        r = io
+        # r = max(10, r + io)
         x1 = r * math.cos(math.radians(theta))
         y1 = r * math.sin(math.radians(theta))
         sh = shape(shbit)
@@ -57,7 +60,6 @@ def main():
         dit.setFill(color(cbit))
         dit.draw(win)
 
-    # ...
     win.getMouse()
     win.close()
 
@@ -90,7 +92,7 @@ def third(input):
 def fourth(input):
     return take_data(input).get('fourthArray')
 
-#main()
+main()
 
 #Tests for the different functions above. Un-comment and use.
 
