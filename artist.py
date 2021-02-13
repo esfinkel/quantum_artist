@@ -21,22 +21,18 @@ def take_data(inputArray):
 # combine helpers together
 def main():
     # https://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
-    win = GraphWin('Art', 200, 150) # give title and dimensions
-    center = {'x': 100, 'y': 75}
+    win = GraphWin('Art', 400, 400) # give title and dimensions
+    center = {'x': 200, 'y': 200}
 
     cbits, iobits, szbits, shbits = take_data(fake_test.outputArray) # assuming list of tuples
     theta = 0
     r = 10
     for i in range(len(cbits)):
-        if i>360:
-            continue
         (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
-        theta += 30 # or whatever
+        theta += 13 # or whatever
 
         sz = size(szbit)
-        io = inout(iobit)
-        r = io
-        # r = max(10, r + io)
+        r = inout(iobit)
         x1 = r * math.cos(math.radians(theta))
         y1 = r * math.sin(math.radians(theta))
         sh = shape(shbit)
@@ -68,16 +64,16 @@ def main():
 def color(i):
     # take int, return color string
     if i == 0:
-        return color_rgb(105, 34, 143)
+        return color_rgb(105, 34, 143) # purple - more common
     
     elif i == 1:
-        return color_rgb(8, 67, 138)
+        return color_rgb(8, 67, 138) # blue
     
 
 def inout(i):
     # take int, return coordinates?
     if i == 0:
-        return np.random.randint(1,5)
+        return np.random.randint(1,5) # equally common
 
     elif i == 1:
         return np.random.randint(10,15)
@@ -85,14 +81,14 @@ def inout(i):
 def size(i):
     # return size
     if i == 0:
-        return np.random.randint(1,5)
+        return np.random.randint(1,5) # equally common
 
     elif i == 1:
         return np.random.randint(10,15)
 
 def shape(i):
     if i == 0:
-         return 'line'
+         return 'line' # equally common
 
     elif i == 1:
         return 'triangle'
