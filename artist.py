@@ -2,7 +2,7 @@ from graphics import *
 import math
 import numpy as np
 
-import four_bit_quantum_rng.py
+import four_bit_quantum_rng
 import real_data
 
 """
