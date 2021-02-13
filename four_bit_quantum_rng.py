@@ -30,7 +30,7 @@ circuit4.measure(qreg_q4[3], creg_c4[3])
 
 def generate_data(circuit):
     # Loading your IBM Q account(s)
-    provider = IBMQ.load_account()
+    # provider = IBMQ.load_account() # uncomment if using a real backend
 
     # pick a device to run on
     # backend = provider.get_backend('ibmq_santiago')
