@@ -67,18 +67,36 @@ def main():
 # make helpers
 def color(i):
     # take int, return color string
-    return 'red'
+    if i == 0
+        return color_rgb(105, 34, 143)
+    
+    elif i == 1
+        return color_rgb(8, 67, 138)
+    
 
 def inout(i):
     # take int, return coordinates?
-    return 10
+    if i == 0
+        return random.randint(1,5)
+
+    elif i == 1
+        return random.randint(10,15)
 
 def size(i):
     # return size
-    return 5
+    if i == 0
+        return random.randint(1,5)
+
+    elif i == 1
+        return random.randint(10,15)
 
 def shape(i):
-    return 'line'
+    if i == 0
+         return 'line'
+
+    elif i == 1
+        return 'triangle'
+
     
 #extra helpers
 # The following four take Dictionary input (specifically from 'take_data(..)'
