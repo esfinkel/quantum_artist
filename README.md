@@ -1,5 +1,11 @@
 # quantum_artist
 
+## Usage
+
+`pip install -r requirements.txt`
+
+Run `artist.py`. Comment/uncomment `DATA_SOURCE` (at top of file) to select whether you want to use our pre-collected real quantum data (in `real_data.py`) or dynamically generate new data using a fake quantum backend (`in four_bit_quantum_rng.py`). Note that the latter will access IBM's resources using qiskit; you would need to follow the instructions at https://qiskit.org/documentation/install.html to cache your qiskit access token, if you've never done so.
+
 ## Project Statement
 
 The objective of the “random drawer” is to create art using the results from a quantum RNG. Because there will be noisy data that we will not be getting rid of, this data will also be used to draw (this part of the drawing will essentially be a visual representation of noise).
