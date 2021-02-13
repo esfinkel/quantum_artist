@@ -10,23 +10,17 @@ contains all nth position qubits of strings in the input array, in the form
 """
 def take_data(inputArray):
     fstArray = []; sndArray = []; thdArray = []; fthArray = []
-    for x in range(len(inputArray)):
-        str = inputArray[x] # example: "0000" or "1011"
+    for str in inputArray:
         fstArray.append(int(str[0])) # store first qubit of each str as an int
         sndArray.append(int(str[1]))
         thdArray.append(int(str[2]))
         fthArray.append(int(str[3]))
-#    outputDict = dict()
-#    outputDict['firstArray'] = fstArray
-#    outputDict['secondArray'] = sndArray
-#    outputDict['thirdArray'] = thdArray
-#    outputDict['fourthArray'] = fthArray
     outputDict = {'firstArray':fstArray, 'secondArray':sndArray,
                   'thirdArray':thdArray, 'fourthArray':fthArray} #dictionary to retun all the qubit arrays.
     return outputDict
 # Note: I wrote some extra helpers first (outputArray), second (...), etc. that
-# give each int array by itself. You can use them or of course,
-# call this directly  as take_data(outputArray).
+# give each int array by itself. You can use them in main() or call this 
+# function  as take_data(outputArray).
 
 # combine helpers together
 def main():
@@ -69,7 +63,7 @@ def fourth(input):
 
 #main()
 
-#Tests for the different functions above:
+#Tests for the different functions above. Un-comment and use.
 
 #print(take_data(["0000", "0001", "1000", "1100"]))
 #print(take_data(outputArray))
