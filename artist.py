@@ -28,8 +28,8 @@ def main():
     theta = 0
     r = 10
     for i in range(len(cbits)):
-        # if theta > 100:
-        #     continue
+        if theta > 2000:
+            continue
         (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
         theta += 13 # or whatever
 
@@ -40,20 +40,22 @@ def main():
         sh = shape(shbit)
 
         if sh=='triangle':
+            scale = 3 * (r + sz)
             pt1 = Point(center['x']+x1, center['y']+y1)
-            x2 = r * math.cos(math.radians(theta - sz))
-            y2 = r * math.sin(math.radians(theta - sz))
+            x2 = scale * math.cos(math.radians(theta - sz))
+            y2 = scale * math.sin(math.radians(theta - sz))
             pt2 = Point(center['x']+x2, center['y']+y2)
-            x3 = r * math.cos(math.radians(theta + sz))
-            y3 = r * math.sin(math.radians(theta + sz))
+            x3 = scale * math.cos(math.radians(theta + sz))
+            y3 = scale * math.sin(math.radians(theta + sz))
             pt3 = Point(center['x']+x3, center['y']+y3)
             dit = Polygon(pt1, pt2, pt3)
 
         elif sh=='line':
-            x2 = 2 * r * math.cos(math.radians(theta))
-            y2 = 2 * r * math.sin(math.radians(theta))
+            scale = 6 * r
+            x2 = scale * math.cos(math.radians(theta))
+            y2 = scale * math.sin(math.radians(theta))
             dit = Line(Point(center['x']+x1, center['y']+y1), Point(center['x']+x2, center['y']+y2))
-            dit.setWidth(sz)
+            dit.setWidth(sz/2)
 
         dit.setFill(color(cbit))
         dit.draw(win)
