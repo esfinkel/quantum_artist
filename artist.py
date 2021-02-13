@@ -73,18 +73,18 @@ def color(i):
 def inout(i):
     # take int, return coordinates?
     if i == 0:
-        return np.random.randint(1,5) # equally common
+        return 5 # equally common
 
     elif i == 1:
-        return np.random.randint(10,15)
+        return 15
 
 def size(i):
     # return size
     if i == 0:
-        return np.random.randint(1,5) # equally common
+        return 5 # equally common
 
     elif i == 1:
-        return np.random.randint(10,15)
+        return 15
 
 def shape(i):
     if i == 0:
