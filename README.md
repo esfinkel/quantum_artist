@@ -1,5 +1,7 @@
 # quantum_artist
 
+By Elisabeth Finkel, Kshama Malavalli, and Gayathrini Premawardhana (all B.A. Cornell University, 2021)
+
 ## Usage
 
 `pip install -r requirements.txt`
