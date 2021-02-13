@@ -1,11 +1,13 @@
 from graphics import *
 import math
-
-import fake_test
 import numpy as np
+
+import four_bit_quantum_rng.py
+import real_data
+
 """
 Take in data and convert to good format.
-Input: Array 'outputArray' from 'fake_test.py' (array of 4-bit combinations).
+Input: Array 'outputArray' from 'four_bit_quantum_rng.py' (array of 4-bit combinations).
 Output: Tuple of 4 Arrays the nth array
 contains all nth position qubits of strings in the input array.
 """
@@ -24,12 +26,13 @@ def main():
     win = GraphWin('Art', 400, 400) # give title and dimensions
     center = {'x': 200, 'y': 200}
 
-    cbits, iobits, szbits, shbits = take_data(fake_test.outputArray) # assuming list of tuples
+    # cbits, iobits, szbits, shbits = take_data(four_bit_quantum_rng.outputArray)
+    cbits, iobits, szbits, shbits = take_data(real_data.data)
     theta = 0
     r = 10
     for i in range(len(cbits)):
-        if theta > 2000:
-            continue
+        # if theta > 4000:
+        #     continue
         (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
         theta += 13 # or whatever
 
@@ -42,8 +45,8 @@ def main():
         if sh=='triangle':
             scale = 3 * (r + sz)
             pt1 = Point(center['x']+x1, center['y']+y1)
-            x2 = scale * math.cos(math.radians(theta - sz))
-            y2 = scale * math.sin(math.radians(theta - sz))
+            x2 = scale * math.cos(math.radians(theta))
+            y2 = scale * math.sin(math.radians(theta))
             pt2 = Point(center['x']+x2, center['y']+y2)
             x3 = scale * math.cos(math.radians(theta + sz))
             y3 = scale * math.sin(math.radians(theta + sz))
@@ -51,7 +54,7 @@ def main():
             dit = Polygon(pt1, pt2, pt3)
 
         elif sh=='line':
-            scale = 6 * r
+            scale = 4 * r
             x2 = scale * math.cos(math.radians(theta))
             y2 = scale * math.sin(math.radians(theta))
             dit = Line(Point(center['x']+x1, center['y']+y1), Point(center['x']+x2, center['y']+y2))

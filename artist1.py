@@ -6,13 +6,13 @@ Created on Sat Feb 13 09:09:57 2021
 @author: kshama.m17
 """
 import graphics as gr
-import fake_test as ft
+import four_bit_quantum_rng as ft
 line_width = 50
 test_array = []
 
 """
 Take in data and convert to good format.
-Input: Array 'outputArray' from 'fake_test.py' (array of 4-bit combinations).
+Input: Array 'outputArray' from 'four_bit_quantum_rng.py' (array of 4-bit combinations).
 Output: Dictionary 'outputDict' containing four arrays where the nth array
 contains all nth position qubits of strings in the input array, in the form
 {'firstArray': [1,0,..0],..., 'fourthArray': [1,0,...0]}.
