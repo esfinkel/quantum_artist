@@ -6,7 +6,7 @@ Created on Sat Feb 13 09:09:57 2021
 @author: kshama.m17
 """
 import graphics as gr
-import four_bit_quantum_rng as ft
+import four_bit_quantum_rng as fbqrng
 line_width = 50
 test_array = []
 
@@ -42,11 +42,11 @@ def main():
 #    secArray = [0,0,1]
 #    thirdArray = [0.,1,0]
 #    fourthArray = [1,1,0]
-    
-    firstArray = first(ft.outputArray) #results of 'take_data(..)' and 'first(..)' from artist.py
-    secArray = second(ft.outputArray)
-    thirdArray = third(ft.outputArray)
-    fourthArray = fourth(ft.outputArray) 
+    data = fbqrng.generate_data(fbqrng.circuit4)
+    firstArray = first(data) #results of 'take_data(..)' and 'first(..)' from artist.py
+    secArray = second(data)
+    thirdArray = third(data)
+    fourthArray = fourth(data) 
     
     #The path we'll sweep:
     x = -9; y = -9 #initialize coords.

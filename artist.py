@@ -5,6 +5,9 @@ import numpy as np
 import four_bit_quantum_rng
 import real_data
 
+# DATA_SOURCE = four_bit_quantum_rng.generate_data(four_bit_quantum_rng.circuit4)
+DATA_SOURCE = real_data.data
+
 """
 Take in data and convert to good format.
 Input: Array 'outputArray' from 'four_bit_quantum_rng.py' (array of 4-bit combinations).
@@ -26,10 +29,9 @@ def main():
     win = GraphWin('Art', 400, 400) # give title and dimensions
     center = {'x': 200, 'y': 200}
 
-    # cbits, iobits, szbits, shbits = take_data(four_bit_quantum_rng.outputArray)
-    cbits, iobits, szbits, shbits = take_data(real_data.data)
+    cbits, iobits, szbits, shbits = take_data(DATA_SOURCE)
+
     theta = 0
-    r = 10
     for i in range(len(cbits)):
         # if theta > 4000:
         #     continue

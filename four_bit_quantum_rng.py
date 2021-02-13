@@ -9,9 +9,6 @@ from qiskit.compiler import transpile, assemble
 from qiskit.tools.jupyter import *
 from qiskit.visualization import *
 
-# Loading your IBM Q account(s)
-provider = IBMQ.load_account()
-
 ##################################################
 
 #paste qiskit code from website here
@@ -30,22 +27,29 @@ circuit4.measure(qreg_q4[3], creg_c4[3])
 
 #circuit4.draw()
 ################################################
-# pick a device to run on
-# backend = provider.get_backend('ibmq_santiago')
-backend = FakeVigo()
 
-# Execute the circuit on the backend
-job = execute(circuit4, backend, shots=1000, memory=True)
+def generate_data(circuit):
+    # Loading your IBM Q account(s)
+    provider = IBMQ.load_account()
 
-# Grab results from the job
-result = job.result()
+    # pick a device to run on
+    # backend = provider.get_backend('ibmq_santiago')
+    backend = FakeVigo()
 
-#get individual shots
-outputArray = result.get_memory()
+    # Execute the circuit on the backend
+    job = execute(circuit4, backend, shots=1000, memory=True)
 
-res = defaultdict(int)
-for x in outputArray:
-    res[x] += 1
+    # Grab results from the job
+    result = job.result()
 
-# print(outputArray)
-# print(res)
+    #get individual shots
+    outputArray = result.get_memory()
+
+    res = defaultdict(int)
+    for x in outputArray:
+        res[x] += 1
+
+    return outputArray
+
+    # print(outputArray)
+    # print(res)
