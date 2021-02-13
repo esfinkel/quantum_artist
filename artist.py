@@ -28,6 +28,8 @@ def main():
     theta = 0
     r = 10
     for i in range(len(cbits)):
+        # if theta > 100:
+        #     continue
         (cbit, iobit, szbit, shbit) = cbits[i], iobits[i], szbits[i], shbits[i]
         theta += 13 # or whatever
 
@@ -39,11 +41,11 @@ def main():
 
         if sh=='triangle':
             pt1 = Point(center['x']+x1, center['y']+y1)
-            x2 = (r*sz) * math.cos(math.radians(theta - 3))
-            y2 = (r*sz) * math.sin(math.radians(theta - 3))
+            x2 = r * math.cos(math.radians(theta - sz))
+            y2 = r * math.sin(math.radians(theta - sz))
             pt2 = Point(center['x']+x2, center['y']+y2)
-            x3 = (r*sz) * math.cos(math.radians(theta + 3))
-            y3 = (r*sz) * math.sin(math.radians(theta + 3))
+            x3 = r * math.cos(math.radians(theta + sz))
+            y3 = r * math.sin(math.radians(theta + sz))
             pt3 = Point(center['x']+x3, center['y']+y3)
             dit = Polygon(pt1, pt2, pt3)
 
