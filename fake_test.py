@@ -32,12 +32,28 @@ circuit.measure(qreg_q[2], creg_c[2])
 
 #################################################
 
+#paste qiskit code from website here
+qreg_q4 = QuantumRegister(4, 'q')
+creg_c4 = ClassicalRegister(4, 'c')
+circuit4 = QuantumCircuit(qreg_q4, creg_c4)
+
+circuit4.h(qreg_q4[0])
+circuit4.h(qreg_q4[1])
+circuit4.h(qreg_q4[2])
+circuit4.ccx(qreg_q4[0], qreg_q4[1], qreg_q4[3])
+circuit4.measure(qreg_q4[0], creg_c4[0])
+circuit4.measure(qreg_q4[1], creg_c4[1])
+circuit4.measure(qreg_q4[2], creg_c4[2])
+circuit4.measure(qreg_q4[3], creg_c4[3])
+
+#circuit4.draw()
+################################################
 # pick a device to run on
 # backend = provider.get_backend('ibmq_qasm_simulator')
 backend = FakeVigo()
 
 # Execute the circuit on the backend
-job = execute(circuit, backend, shots=1000, memory=True)
+job = execute(circuit4, backend, shots=1000, memory=True)
 
 # Grab results from the job
 result = job.result()
