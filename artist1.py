@@ -6,7 +6,7 @@ Created on Sat Feb 13 09:09:57 2021
 @author: kshama.m17
 """
 import graphics as gr
-import fake_test_copy as ft
+import fake_test as ft
 line_width = 50
 test_array = []
 
